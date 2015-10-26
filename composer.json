@@ -1,0 +1,24 @@
+{
+    "name": "axy/syspaths",
+    "type": "library",
+    "description": "Specifying paths within the system",
+    "keywords": [
+        "path"
+    ],
+    "homepage": "https://github.com/axypro/syspaths",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oleg Grigoriev",
+            "email": "go.vasac@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "axy\\syspaths\\": ""
+        }
+    }
+}
