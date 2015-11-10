@@ -2,7 +2,6 @@
 
 namespace axy\syspaths\tests;
 
-use axy\syspaths\Path;
 use axy\syspaths\Paths;
 use axy\syspaths\tests\tst\TestPaths;
 
