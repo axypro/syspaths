@@ -1,19 +1,19 @@
 # axy\syspaths
 
+Specifying paths within the system.
+
 [![Latest Stable Version](https://img.shields.io/packagist/v/axy/syspaths.svg?style=flat-square)](https://packagist.org/packages/axy/syspaths)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.4-8892BF.svg?style=flat-square)](https://php.net/)
 [![Build Status](https://img.shields.io/travis/axypro/syspaths/master.svg?style=flat-square)](https://travis-ci.org/axypro/syspaths)
+[![Coverage Status](https://coveralls.io/repos/axypro/syspaths/badge.svg?branch=master&service=github)](https://coveralls.io/github/axypro/syspaths?branch=master)
+[![License](https://poser.pugx.org/axy/syspaths/license)](LICENSE)
 
-Specifying paths within the system
+* The library does not require any dependencies (except composer packages).
+* Tested on PHP 5.4+, PHP 7, HHVM (on Linux).
+* Install: `composer require axy/syspaths`.
+* License: [MIT](LICENSE).
 
-* GitHub: [axypro/syspaths](https://github.com/axypro/syspaths)
-* Composer: [axy/syspaths](https://packagist.org/packages/axy/syspaths)
-
-PHP 5.4+
-
-Library does not require any dependencies (except composer packages).
-
-## Purpose
+### Documentation
 
 The library allows to store of the directories structure within a certain system.
 Inside an application for example.
@@ -35,7 +35,7 @@ $tplFN = $app->paths->templates.'/default.twig'; // /www/example.loc/templates/d
 
 Define paths in one place makes it easy to change the structure.
 
-## API
+#### API
 
 The library provides a single class `axy\syspaths\Paths`.
 
@@ -47,7 +47,7 @@ Paths::__construct(string $root [, array $patterns]);
 
 The only required arguments is `$root` - the root directory of the system.
 
-### $patterns
+##### $patterns
 
 `$patterns` specifies a list of sub-paths.
 It can be specified via the constructor (as in the example above).
@@ -73,7 +73,7 @@ Or you can define the property `$patterns` and also specify the argument of the 
 In this case these two list recursively merged.
 For example, define a system class and redefine some paths for tests.
 
-### Access to paths
+##### Access to paths
 
 Via magic methods.
 
@@ -86,7 +86,7 @@ isset($paths->htdocs); // TRUE
 $paths->htdocs = 'new-www'; // Exception: Paths is read-only
 ```
 
-## Patterns
+#### Patterns
 
 ```php
 [
@@ -114,7 +114,7 @@ $paths->tmp; // /tmp
 Other patterns is relative to the root.
 `www` is equivalent to `:root:/www`.
 
-## Nested paths
+#### Nested paths
 
 ```php
 [
@@ -192,7 +192,7 @@ Links can consist of several components:
 ]
 ```
 
-## Creating paths
+#### Creating paths
 
 ```php
 $paths->templates->layouts.'/tpl.twig';
@@ -212,11 +212,10 @@ Paths::create($pattern, $real = false);
 If specified the second argument `$real` executed `realpath()` for the result.
 If the path is not exists then returned `NULL`.
 
-## Exceptions
+#### Exceptions
 
 In the namespace `axy\syspaths\errors`.
 
 * `RequirePatterns` - `$patterns` not defined nor in the property, nor in the constructor.
 * `PatternNotFound` - where access via `__get` or in a link form other pattern.
 * `InvalidPattern` - not closed link, a nested array is not contains `root`, `__classname` in not exists and etc.
-
