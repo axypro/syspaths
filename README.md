@@ -179,7 +179,7 @@ class TemplatesPaths extends Paths
 
 Now we have the full auto-complete: `$app->paths->templates->profile`.
 
-Links can consist of several componetns:
+Links can consist of several components:
 
 ```php
 [

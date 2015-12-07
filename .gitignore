@@ -3,3 +3,4 @@ vendor
 .idea
 phpunit.xml
 phpmd.xml
+build/*

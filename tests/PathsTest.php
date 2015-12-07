@@ -105,6 +105,7 @@ class PathsTest extends \PHPUnit_Framework_TestCase
         ];
         $paths = new Paths(__DIR__, $patterns);
         $this->assertSame($expected, $paths->create($pattern, $real));
+        $this->assertSame($expected, $paths($pattern, $real));
     }
 
     /**
@@ -215,7 +216,7 @@ class PathsTest extends \PHPUnit_Framework_TestCase
     public function testInvalidPattern($patterns)
     {
         $paths = new Paths('/var/htdocs', $patterns);
-        return $paths->key;
+        return $paths->__get('key');
     }
 
     /**
@@ -258,7 +259,7 @@ class PathsTest extends \PHPUnit_Framework_TestCase
     public function testPatternNotFound($patterns)
     {
         $paths = new Paths('/var/htdocs', $patterns);
-        return $paths->key;
+        return $paths->__get('key');
     }
 
     /**
