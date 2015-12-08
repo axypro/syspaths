@@ -112,7 +112,6 @@ class PathsTest extends \PHPUnit_Framework_TestCase
             $expected = str_replace('\\', '/', $expected);
         }
         $this->assertSame($expected, $actual);
-        $this->assertSame($expected, $invoke);
     }
 
     /**
