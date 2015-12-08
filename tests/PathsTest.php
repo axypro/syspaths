@@ -105,9 +105,9 @@ class PathsTest extends \PHPUnit_Framework_TestCase
         ];
         $paths = new Paths(__DIR__, $patterns);
         $actual = $paths->create($pattern, $real);
-        if ($real && substr(strtolower(PHP_OS), 0, 3) === 'win') {
+        if ($real && $actual && substr(strtolower(PHP_OS), 0, 3) === 'win') {
             $actual = str_replace('\\', '/', $actual);
-            $expected = str_replace('\\', '/', $actual);
+            $expected = str_replace('\\', '/', $expected);
         }
         $this->assertSame($expected, $actual);
         $this->assertSame($expected, $paths($pattern, $real));
