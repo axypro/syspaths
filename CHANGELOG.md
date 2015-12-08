@@ -1,6 +1,7 @@
 ### dev-master
 
-* Travis & Coveralls
+* Travis & Coveralls.
+* Fixed test for Windows and path separators.
 
 ### 0.1.1 (10.11.2015)
 

@@ -104,7 +104,11 @@ class PathsTest extends \PHPUnit_Framework_TestCase
             'errors' => 'errors',
         ];
         $paths = new Paths(__DIR__, $patterns);
-        $this->assertSame($expected, $paths->create($pattern, $real));
+        $actual = $paths->create($pattern, $real);
+        if (substr(strtolower(PHP_OS), 0, 3) === 'win') {
+            $actual = str_replace('\\', '/', $actual);
+        }
+        $this->assertSame($expected, $actual);
         $this->assertSame($expected, $paths($pattern, $real));
     }
 
